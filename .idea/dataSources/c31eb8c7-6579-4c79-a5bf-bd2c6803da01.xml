@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="apen@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="apen">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="boodschappen"/>
+    <schema id="4" parent="1" name="boodschappen2"/>
+    <schema id="5" parent="1" name="challengephpdatabase"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="test"/>
+    <table id="10" parent="2" name="aap"/>
+    <table id="11" parent="2" name="aap_has_leefgebied"/>
+    <table id="12" parent="2" name="leefgebied"/>
+    <column id="13" parent="10" name="idaap">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="10" name="soort">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="15" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idaap</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="16" parent="11" name="idaap">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="11" name="idleefgebied">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="18" parent="11" name="fk_aap_has_leefgebied_aap_idx">
+      <ColNames>idaap</ColNames>
+    </index>
+    <index id="19" parent="11" name="fk_aap_has_leefgebied_leefgebied1_idx">
+      <ColNames>idleefgebied</ColNames>
+    </index>
+    <key id="20" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idaap
+idleefgebied</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="11" name="fk_aap_has_leefgebied_aap">
+      <ColNames>idaap</ColNames>
+      <RefSchemaName>apen</RefSchemaName>
+      <RefTableName>aap</RefTableName>
+      <RefColNames>idaap</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="22" parent="11" name="fk_aap_has_leefgebied_leefgebied1">
+      <ColNames>idleefgebied</ColNames>
+      <RefSchemaName>apen</RefSchemaName>
+      <RefTableName>leefgebied</RefTableName>
+      <RefColNames>idleefgebied</RefColNames>
+    </foreign-key>
+    <column id="23" parent="12" name="idleefgebied">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="12" name="omschrijving">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="25" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idleefgebied</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
