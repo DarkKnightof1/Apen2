@@ -9,12 +9,18 @@
 $dbh = new PDO('mysql:host=localhost;dbname=apen;port=8889', 'root', 'root');
 
 
+if(isset($_GET{'apensoort'})) {
+ $soort= $_GET{'apensoort'};
+  $omschrijving = $_GET{'omschrijving'};
+  $sql = "insert into aap (soort) values ($soort)";
+    $sql = "insert into leefgebied (omschrijving) values ('$omschrijving')";
+  $dbh->query($sql);
+}
 
+//SELECT * FROM aap join aap_has_leefgebied on aap.idaap = aap_has_leefgebied.idaap;
 
-
-
-
-
+//query leefgebieden
+//SELECT * FROM aap_has_leefgebied join leefgebied on leefgebied.idleefgebied = leefgebied.idleefgebied;
 
 //$boodschappen = $dbh->query('SELECT * from product');
 //foreach ($boodschappen as $boodschap) {
