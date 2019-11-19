@@ -11,7 +11,12 @@ $dbh = new PDO('mysql:host=localhost;dbname=apen;port=8889', 'root', 'root');
 
 if(isset($_GET{'apensoort'})) {
  $soort= $_GET{'apensoort'};
-  $omschrijving = $_GET{'omschrijving'};
+ //nu met checkboxen
+  $lg1 = $_GET{'lg1'};
+    $lg2 = $_GET{'lg2'};
+    $lg3 = $_GET{'lg3'};
+    $lg4 = $_GET{'lg4'};
+    $omschrijving = $lg1 + $lg2 + $lg3 + $lg4;
   $sql = "insert into aap (soort) values ($soort)";
     $sql = "insert into leefgebied (omschrijving) values ('$omschrijving')";
   $dbh->query($sql);
